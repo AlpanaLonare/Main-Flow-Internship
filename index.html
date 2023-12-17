@@ -4,13 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+
     <style type="text/css">
-      * {
-        /* padding: 0;
-        margin: 0;
-        box-sizing: border-box; */
-      }
       body {
+        margin-bottom: 5%;
         background: url("1.jpeg");
         background-size: cover;
       }
@@ -99,6 +96,29 @@
         padding: 3px;
         background-size: cover;
         color: white;
+        font-size: larger;
+      }
+      
+      .img-box img {
+        width: 350px;
+        height: 300px;
+        border-radius: 2%;
+        border-color: darkorange;
+      }
+      .btn {
+        border: none;
+        outline: none;
+        background: indigo;
+        padding: 5px 30px;
+        font-size: 15px;
+        color: #ddd;
+        cursor: pointer;
+        margin: 10px auto;
+        border-radius: 10px;
+        transition: 0.4s;
+      }
+      .btn:hover {
+        background: #111;
       }
     </style>
   </head>
@@ -111,17 +131,41 @@
           <a href="#">About Us</a>
           <a href="#">Genres</a>
           <a href="#">Best Seller</a>
-          <a href="#">Contact Us</a>
         </div>
         <div class="Register">
+          <a href="Contact.html">Contact</a>
           <a href="#">Register</a>
         </div>
       </nav>
       <section class="h-text">
-        <span>Enjoy Reading</span>
         <h1>Books are a uniquely portable magic</h1>
         <br />
-        <a href="#">Book</a>
+
+        <div class="slider">
+          <div class="img-box">
+            <img src="a.jpg" alt="" class="slider-img" />
+          </div>
+          <button class="btn" onclick="prev()">Prev</button>
+          <button class="btn" onclick="next()">Next</button>
+        </div>
+        <script>
+          var slider_img = document.querySelector(".slider-img");
+          var images = ["a.jpg", "b.jpg", "c.jpg", "d.jpg", "e.jpg"];
+          var i = 0;
+          function prev() {
+            if (i <= 0) i = images.length;
+            i--;
+            return setImg();
+          }
+          function next() {
+            if (i >= images.length - 1) i = -1;
+            i++;
+            return setImg();
+          }
+          function setImg() {
+            return slider_img.setAttribute("src", images[i]);
+          }
+        </script>
       </section>
     </header>
     <footer>
